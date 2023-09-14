@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,16 +13,128 @@ Milestone 1
 
 body {
     font-family: 'Roboto', sans-serif;
-    
-    
+}
 
+main {
+    height: 100vh;
 }
 
 :root {
-    --bz-app-principal: #DBDBD2;
-    --bz-app-header: #009688;
-    --bz-app-success: #D5F9BA;
-    --bz-app-light: #E9EBEB;
+    --bz-app-bg-light-gradient: linear-gradient(180deg, rgba(230, 230, 210, 1) 0%, rgba(215, 219, 220, 1) 59%, rgba(210, 219, 230, 1) 100%);
+    --bz-app-bg-light:rgb(230, 230, 210);
+    --bz-app-highlight: #6b7376;
+    --bz-app-controls-icon: #b1b0b0;
+    --bz-app-background: #b1b1b1;
+    --bz-app-light: #eaeaea; 
     --bz-app-white: #FFFFFF;
-    --bz-app-focus: #8EDAFC;
+    --bz-app-white-soft: #fafafa;
+    --bz-app-header: #009688;
+    --bz-app-msgSent: #D5F9BA;
+    --bz-app-notification: #8EDAFC;
+    --bz-app-border: #f3f3f3;
+}
+
+.container {
+    background-color: var(--bz-app-light);
+    width: 80%;
+    height: 94%;
+    position: absolute;
+    top: 3%;
+    left: 10%;
+}
+
+
+.bg_top {
+    height: 20%;
+    width: 100%;
+    background-color: var(--bz-app-header);
+}
+
+.bg_down {
+    background: var(--bz-app-bg-light);
+    background: var(--bz-app-bg-light-gradient);
+    height: 80%;
+
+}
+
+.w-15{
+    width: 15%;
+}
+
+.w-20{
+    width: 20%;
+}
+
+.vh-80{
+    height: 80vh;
+}
+
+.interface{
+    max-width: 1124px;
+    width: 100%;
+}
+
+.gradient-background {
+
+background: linear-gradient(0deg, var(--bz-app-bg-light-gradient) 82%, var(--bz-app-header) 82%);
+ height: 100vh;
+}
+
+.controls{
+    & i{
+        font-size: 1.4rem;
+        color: var(--bz-app-controls-icon);
+    }
+}
+
+.notify{
+    background-color: var(--bz-app-notification);
+    height: 80px;
+
+    .circle_icon{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 100%;
+    }
+
+    & i{
+        color: var(--bz-app-notification);
+        font-size: 1.5rem;
+
+    }
+
+    & a {
+        color: var(--bz-app-highlight);
+    }
+}
+
+.search_bar{
+    & i{
+        color: var(--bz-app-controls-icon);;
+    }
+    & input{
+        border-color: var(--bz-app-controls-icon);
+    }
+}
+
+.contacts {
+
+    height: calc(100% - 200px);
+
+    & .contact_info{
+        margin-left: 0.8rem;
+    }
+
+    & h4{
+        margin: 0;
+    }
+
+    & span{
+        color: var(--bz-app-white-soft);
+    }
+
+}
+
+.contacts_container {
+    overflow-y: scroll;
 }
