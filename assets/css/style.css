@@ -10,3 +10,19 @@ Milestone 1
 -Replica della grafica con la possibilità di avere messaggi scritti dall'utente (verdi) e dall'interlocutore (bianco) assegnando due classi CSS diverse.
 -Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
 */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    
+    
+
+}
+
+:root {
+    --bz-app-principal: #DBDBD2;
+    --bz-app-header: #009688;
+    --bz-app-success: #D5F9BA;
+    --bz-app-light: #E9EBEB;
+    --bz-app-white: #FFFFFF;
+    --bz-app-focus: #8EDAFC;
+}
