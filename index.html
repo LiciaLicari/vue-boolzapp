@@ -34,8 +34,8 @@
                         <div class="name">{{me.name}}</div>
                     </div>
                     <div class="actions">
-                        <i class="fa-solid fa-circle-notch fa-lg fa-fw"></i>
-                        <i class="fa-solid fa-comment fa-lg  fa-fw"></i>
+                        <i class="fa-solid fa-circle-notch fa-lg fa-fw me-2"></i>
+                        <i class="fa-solid fa-message fa-lg fa-fw me-2"></i>
                         <i class="fa-solid fa-ellipsis-v fa-lg fa-fw"></i>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
 
                 <!-- TODO: BACKGROUND COLOR NEED FIXING -->
 
-                
+
 
                 <div class="search_bar border my-1 mx-2 p-2 rounded-0 bg-light">
                     <button class="border-0 bg-transparent w-15"><i class="fa-solid fa-magnifying-glass "></i></button>
@@ -83,12 +83,13 @@
             <!-- /.left -->
             <div class="right">
                 <div class="active_contact">
+                    
 
                     <div class="contact_details">
                         <div class="avatar">
-                            <img :src="`./assets/img/avatar${me.avatar}.jpg`" alt="">
+                            <img :src="contacts[activeContact].avatar" alt="">
                         </div>
-                        <div class="name">{{me.name}}</div>
+                        <div class="name">{{contacts[activeContact].name}}</div>
                     </div>
                     <div class="actions">
                         <i class="fa-solid fa-circle-notch fa-lg fa-fw"></i>
@@ -99,25 +100,20 @@
                 </div>
                 <!-- /.active_contact -->
                 <div class="messages">
-                    <div class="sent">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
-                    </div>
-                    <div class="sent">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
-                    </div>
-                    <div class="received">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
+                    <div v-for="message in contacts[activeContact].messages" :class="message.status === 'sent' ? 'sent' : 'received'">
+                        <p>{{message.message}}</p>
                     </div>
 
                 </div>
                 <!-- /.messages -->
                 <div class="toolbar">
                     <div class="emoji">
-                        <i class="fa-solid fa-smile    "></i>
+                        <i class="fa-solid fa-smile fa-lg fa-fw"></i>
                     </div>
-                    <input type="text">
+                    <input type="text" class="text_area"
+                    placeholder="Scrivi un messaggio">
                     <div class="mic">
-                        <i class="fa-solid fa-microphone"></i>
+                        <i class="fa-solid fa-microphone fa-lg fa-fw"></i>
                     </div>
                 </div>
                 <!-- /.toolbar -->
