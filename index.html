@@ -65,8 +65,8 @@
 
                 <!-- /.search_bar -->
                 <div class="contacts">
-                    <div class="contact" :class="index === activeContact ? 'active' : ''"
-                        v-for="(contact, index) in contacts">
+                    <div class="contact" v-for="(contact, i) in contacts" @click="showActiveContact(i)"
+                        :class="i == activeContact ? 'active' : '' ">
                         <div class="avatar">
                             <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
                         </div>
@@ -83,7 +83,7 @@
             <!-- /.left -->
             <div class="right">
                 <div class="active_contact">
-                    
+
 
                     <div class="contact_details">
                         <div class="avatar">
@@ -100,7 +100,8 @@
                 </div>
                 <!-- /.active_contact -->
                 <div class="messages">
-                    <div v-for="message in contacts[activeContact].messages" :class="message.status === 'sent' ? 'sent' : 'received'">
+                    <div v-for="message in contacts[activeContact].messages"
+                        :class="message.status === 'sent' ? 'sent' : 'received'">
                         <p>{{message.message}}</p>
                     </div>
 
@@ -110,8 +111,7 @@
                     <div class="emoji">
                         <i class="fa-solid fa-smile fa-lg fa-fw"></i>
                     </div>
-                    <input type="text" class="text_area"
-                    placeholder="Scrivi un messaggio">
+                    <input type="text" class="text_area" placeholder="Scrivi un messaggio">
                     <div class="mic">
                         <i class="fa-solid fa-microphone fa-lg fa-fw"></i>
                     </div>
