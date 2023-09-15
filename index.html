@@ -109,7 +109,8 @@
                     <div v-for="message in contacts[activeContact].messages"
                         :class="message.status === 'sent' ? 'sent' : 'received'">
                         <div :class="message.status === 'sent' ? 'sent' : 'received'">
-                        
+                            <!-- !!!!!!!!!!!!!!!!da rivedere data e msg che invio!!!!!!!!!!!!!!!!!! -->
+
                             <p>{{message.message}}</p>
                             <div class="whenSent d-flex justify-content-end">
                                 {{message.date}}
@@ -125,7 +126,8 @@
                     <div class="emoji">
                         <i class="fa-solid fa-smile fa-lg fa-fw"></i>
                     </div>
-                    <input type="text" class="text_area" placeholder="Scrivi un messaggio">
+                    <input type="text" class="text_area" placeholder="Scrivi un messaggio"  v-model="newMessage"
+                                        @keyup.enter="sendMessage">
                     <div class="mic">
                         <i class="fa-solid fa-microphone fa-lg fa-fw"></i>
                     </div>

@@ -9,8 +9,11 @@ createApp({
                 name: 'Sofia'
             },
 
-            //contatto attivo per vedere i messsaggi
+            //contatto attivo per vedere i messaggi
             activeContact: 0,
+
+            //stringa che contiene il messaggio al mio contatto
+            newMsgToSend: '',
 
             contacts: [
                 {
@@ -187,7 +190,23 @@ createApp({
             //console.log(this.activeContact);
             //console.log(i);
             return true;
-        }
+        },
+        sendMessage() {
+         this.contacts[this.activeContact].messages.push({
+             date: new Date(),
+             message: this.newMsgToSend,
+             status: 'sent'
+         });
+         this.newMsgToSend = '';
+     
+         setTimeout(() => {
+             this.contacts[this.activeContact].messages.push({
+                 date: new Date(),
+                 message: 'ok',
+                 status: 'received'
+             });
+         }, 1000);
+     }
     },
 
     /*
@@ -197,7 +216,8 @@ createApp({
        ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
        un “ok” come risposta, che apparirà dopo 1 secondo.
     
-       */
+    */
+
 
 
 
