@@ -109,7 +109,7 @@
                     <div v-for="message in contacts[activeContact].messages"
                         :class="message.status === 'sent' ? 'sent' : 'received'">
                         <div :class="message.status === 'sent' ? 'sent' : 'received'">
-                            <!-- !!!!!!!!!!!!!!!!da rivedere data e msg che invio!!!!!!!!!!!!!!!!!! -->
+                            <!-- !!!!!!!!!!!!!!!!da rivedere data!!!!!!!!!!!!!!!!!! -->
 
                             <p>{{message.message}}</p>
                             <div class="whenSent d-flex justify-content-end">

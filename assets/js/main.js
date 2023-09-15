@@ -191,8 +191,9 @@ createApp({
             //console.log(i);
             return true;
         },
+        
         sendMessage() {
-            console.log(this.newMsgToSend);
+           
 
             this.contacts[this.activeContact].messages.push({
                 date: new Date(),
@@ -202,7 +203,7 @@ createApp({
 
             this.newMsgToSend = '';
 
-            console.log(newMsgToSend);
+            // console.log(newMsgToSend);
 
             setTimeout(() => {
                 this.contacts[this.activeContact].messages.push({
