@@ -22,98 +22,109 @@
 
 </head>
 
-<body>
-    <div id="app">
-        <div class="background vh-100 position-relative">
-            <div class="bg_top"></div>
-            <div class="bg_down"></div>
-        </div>
-        <main>
-
-            <div class="container d-flex">
-                <div class="interface h-75">
-                    <div class="row">
-                        <div class="col-4 p-0">
-
-                            <div class="user_controller d-flex p-2">
-                                <div class="info d-flex align-items-center">
-
-                                    <img src="./assets/img/avatar_io.jpg" alt class="rounded-circle w-15 py-2">
-                                    <p class="m-0">Sofia</p>
-                                </div>
-                                <!-- /.info -->
-                                <div class="controls w-25 d-flex align-items-center justify-content-between gap-3">
-
-                                    <i class="fa-solid fa-circle-notch"></i>
-                                    <i class="fa-solid fa-message"></i>
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-
-                                </div>
-                                <!-- /.actions -->
-                            </div>
-                            <!-- /.user_controller -->
-
-                            <div class="notify d-flex justify-content-around align-items-center p-2">
-                                <div class="circle_icon bg-white d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-bell-slash"></i>
-                                </div>
-                                <div>
-                                    <p>ricevi notifiche di nuovi messaggi</p>
-                                    <span><a href>Attiva notifiche Desktop</a></span>
-                                </div>
-                            </div>
-                            <!-- /.notify -->
-
-                            <div class="search_bar border my-1 mx-2 p-2 rounded-0 bg-light">
-                                <button class="border-0 bg-transparent w-15"><i
-                                        class="fa-solid fa-magnifying-glass "></i></button>
-                                <input type="text" class="border-0 bg-light w-75"
-                                    placeholder="cerca o inizia una nuova chat">
-                            </div>
-                            
-                            <!-- /.search_bar -->
-
-                            <div class="contacts p-2">
-                                <div class="contacts_container h-100">
-
-                                    <div v-for="(contact,index) in contacts"
-                                        class="contact py-2 d-flex justify-content-between border-bottom">
-                                        <div class="d-flex">
-
-                                            <img :src="contact.avatar" alt="contact.name" class="w-20 rounded-circle">
-                                            <div class="contact_info">
-                                                <h4 class="username ">
-                                                    {{contact.name}}
-                                                    {{message}}
-                                                </h4>
-                                                <span>ultimo messaggio inviato</span>
-                                            </div>
-                                            <span>12:00</span>
-                                        </div>
-
-                                    </div>
-                                    <!-- /v-for -->
-                                </div>
-                                <!-- /.contacts_container -->
-                            </div>
-                            <!-- /.contacts -->
-
+<body class="debug">
+    <div id='app'>
+        <div class="wrapper">
+            <div class="left">
+                <div class="user">
+                    <div class="me">
+                        <div class="avatar">
+                            <img :src="`./assets/img/avatar${me.avatar}.jpg`" alt="">
                         </div>
-                        <div class="col-8">
-
-                        </div>
+                        <div class="name">{{me.name}}</div>
+                    </div>
+                    <div class="actions">
+                        <i class="fa-solid fa-circle-notch fa-lg fa-fw"></i>
+                        <i class="fa-solid fa-comment fa-lg  fa-fw"></i>
+                        <i class="fa-solid fa-ellipsis-v fa-lg fa-fw"></i>
                     </div>
                 </div>
-                <!-- /.interface -->
+                <!-- /.user -->
+                <div class="notifications">
+                    <div class="bell">
+                        <i class="fa-solid fa-bell-slash fa-lg fa-fw"></i>
+                    </div>
+                    <div class="text">
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <a href="#">
+                            Attiva notifiche desktop
+                        </a>
+                    </div>
+                </div>
+                <!-- /.notifications -->
 
+
+                <!-- TODO: BACKGROUND COLOR NEED FIXING -->
+
+                
+
+                <div class="search_bar border my-1 mx-2 p-2 rounded-0 bg-light">
+                    <button class="border-0 bg-transparent w-15"><i class="fa-solid fa-magnifying-glass "></i></button>
+                    <input type="text" class="border-0 bg-light w-75" placeholder="cerca o inizia una nuova chat">
+                </div>
+
+                <!-- /.search_bar -->
+                <div class="contacts">
+                    <div class="contact" :class="index === activeContact ? 'active' : ''"
+                        v-for="(contact, index) in contacts">
+                        <div class="avatar">
+                            <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
+                        </div>
+                        <div class="text">
+                            {{contact.name}}
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- /.contacts -->
             </div>
+            <!-- /.left -->
+            <div class="right">
+                <div class="active_contact">
 
-        </main>
+                    <div class="contact_details">
+                        <div class="avatar">
+                            <img :src="`./assets/img/avatar${me.avatar}.jpg`" alt="">
+                        </div>
+                        <div class="name">{{me.name}}</div>
+                    </div>
+                    <div class="actions">
+                        <i class="fa-solid fa-circle-notch fa-lg fa-fw"></i>
+                        <i class="fa-solid fa-comment fa-lg  fa-fw"></i>
+                        <i class="fa-solid fa-ellipsis-v fa-lg fa-fw"></i>
+                    </div>
+
+                </div>
+                <!-- /.active_contact -->
+                <div class="messages">
+                    <div class="sent">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
+                    </div>
+                    <div class="sent">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
+                    </div>
+                    <div class="received">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
+                    </div>
+
+                </div>
+                <!-- /.messages -->
+                <div class="toolbar">
+                    <div class="emoji">
+                        <i class="fa-solid fa-smile    "></i>
+                    </div>
+                    <input type="text">
+                    <div class="mic">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+                <!-- /.toolbar -->
+            </div>
+            <!-- /.right -->
+        </div>
     </div>
-
-
-
-
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -124,6 +135,8 @@
         </script>
     <!-- VUEJS LINK -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- MY VUEJS LINK -->
+    <script src='./assets/js/main.js'></script>
 </body>
 
 </html>

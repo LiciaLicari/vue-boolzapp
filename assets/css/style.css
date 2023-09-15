@@ -1,140 +1,270 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root
+{
+  --bz-dark-gray: #b1b1b1;
+  --bz-gray: #d9dbd5;
+  --bz-gray-light: #eaebeb;
+  --bz-gray-ligther: #fbfbfa;
+  --bz-white: white;
+  --bz-sand: #f3eeea;
+  --bz-dark: #000;
+  --bz-sky: #8fdafd;
+  --bz-dark-green: #019689;
+  --bz-green: #d5f9ba;
 }
 
-/* Descrizione:
-
-Milestone 1
--Replica della grafica con la possibilità di avere messaggi scritti dall'utente (verdi) e dall'interlocutore (bianco) assegnando due classi CSS diverse.
--Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
-*/
-
-body {
-    font-family: 'Roboto', sans-serif;
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-main {
-    height: 100vh;
+body
+{
+  background-image: linear-gradient(to bottom, var(--bz-dark-green) 0, var(--bz-dark-green) 140px, var(--bz-gray) 140px, var(--bz-gray) 100%);
+  overflow: hidden;
 }
 
-:root {
-    --bz-app-bg-light-gradient: linear-gradient(180deg, rgba(230, 230, 210, 1) 0%, rgba(215, 219, 220, 1) 59%, rgba(210, 219, 230, 1) 100%);
-    --bz-app-bg-light:rgb(230, 230, 210);
-    --bz-app-highlight: #6b7376;
-    --bz-app-controls-icon: #b1b0b0;
-    --bz-app-background: #b1b1b1;
-    --bz-app-light: #eaeaea; 
-    --bz-app-white: #FFFFFF;
-    --bz-app-white-soft: #fafafa;
-    --bz-app-header: #009688;
-    --bz-app-msgSent: #D5F9BA;
-    --bz-app-notification: #8EDAFC;
-    --bz-app-border: #f3f3f3;
+#app
+{
+  height: 100vh;
 }
 
-.container {
-    background-color: var(--bz-app-light);
-    width: 80%;
-    height: 94%;
-    position: absolute;
-    top: 3%;
-    left: 10%;
-}
+.wrapper
+{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 2rem auto;
+  height: calc(100% - 4rem);
 
+  & .left,
+  & .right
+  {
+    height: 100%;
+  }
 
-.bg_top {
-    height: 20%;
-    width: 100%;
-    background-color: var(--bz-app-header);
-}
+  & .left
+  {
+    flex-grow: 1;
+  }
 
-.bg_down {
-    background: var(--bz-app-bg-light);
-    background: var(--bz-app-bg-light-gradient);
-    height: 80%;
+  & .right
+  {
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+  }
 
 }
 
-.w-15{
-    width: 15%;
+/* #endregion common */
+
+/* #region debug */
+.debug .left
+{
+  background-color: blanchedalmond;
 }
 
-.w-20{
-    width: 20%;
+.debug .right
+{
+  background-color: aqua;
 }
 
-.vh-80{
-    height: 80vh;
+/*  #endregion debug */
+
+/* #region left */
+.left > .user
+{
+  background-color: var(--bz-gray-light);
+  padding: 1rem;
 }
 
-.interface{
-    max-width: 1124px;
-    width: 100%;
+.left > .notifications
+{
+  background-color: var(--bz-sky);
+  padding: 1rem;
 }
 
-.gradient-background {
-
-background: linear-gradient(0deg, var(--bz-app-bg-light-gradient) 82%, var(--bz-app-header) 82%);
- height: 100vh;
+.left > .search_bar
+{
+  background-color: var(--bz-gray-light);
+  padding: 1rem;
 }
 
-.controls{
-    & i{
-        font-size: 1.4rem;
-        color: var(--bz-app-controls-icon);
+.contacts
+{
+  overflow-y: auto;
+  height: calc(100% - 220px);
+}
+
+.contact
+{
+  display: flex;
+  align-items: flex-start;
+  column-gap: 1rem;
+  padding: 0.5rem;
+  background-color: var(--bz-white);
+  border: 1px solid var(--bz-gray-light);
+}
+
+.contact.active
+{
+  background-color: var(--bz-gray-light);
+}
+
+.avatar img
+{
+  width: 60px;
+  border-radius: 50%;
+}
+
+.contact .text
+{
+  padding-top: 0.25rem;
+}
+
+.user
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user .actions
+{
+  color: var(--bz-dark-gray);
+}
+
+.user .actions i
+{
+  padding: 1rem;
+}
+
+
+.notifications
+{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.notifications .bell
+{
+    width: 60px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--bz-white);
+    color: #8fdafd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.me
+{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.search_bar {
+    & i {
+        margin: 0 1.5rem;
+        color: var(--bz-dark-gray);
+        ;
+    }
+
+    & input {
+        border-color: var(--bz-dark-gray);
     }
 }
+/* #endregion left */
 
-.notify{
-    background-color: var(--bz-app-notification);
-    height: 80px;
+/* #region Right */
 
-    .circle_icon{
-        width: 3rem;
-        height: 3rem;
-        border-radius: 100%;
-    }
-
-    & i{
-        color: var(--bz-app-notification);
-        font-size: 1.5rem;
-
-    }
-
-    & a {
-        color: var(--bz-app-highlight);
-    }
-}
-
-.search_bar{
-    & i{
-        color: var(--bz-app-controls-icon);;
-    }
-    & input{
-        border-color: var(--bz-app-controls-icon);
-    }
-}
-
-.contacts {
-
-    height: calc(100% - 200px);
-
-    & .contact_info{
-        margin-left: 0.8rem;
-    }
-
-    & h4{
-        margin: 0;
-    }
-
-    & span{
-        color: var(--bz-app-white-soft);
-    }
+.messages
+{
+  background-image: url('../img/mine.jpg');
+  width: 100%;
+  flex-grow: 1;
 
 }
 
-.contacts_container {
-    overflow-y: scroll;
+.active_contact
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bz-gray-light);
+  border-left: 1px solid var(--bz-dark-gray);
 }
+
+.active_contact .actions
+{
+  color: var(--bz-dark-gray)
+}
+
+.contact_details
+{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.toolbar
+{
+  padding: 1rem;
+  background-color: var(--bz-sand);
+  display: flex;
+  justify-content: space-around;
+}
+
+.toolbar input
+{
+  flex-grow: 1;
+}
+
+.toolbar .emoji,
+.toolbar .mic
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+/* #endregion right */
+
+/* #region Messages section */
+
+.messages
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.received,
+.sent
+{
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  max-width: 200px;
+}
+
+.received
+{
+  align-self: flex-start;
+  background-color: var(--bz-white);
+}
+
+.sent
+{
+  align-self: flex-end;
+  background-color: var(--bz-green);
+
+}
+
+
+/* #endregion Messages section */
