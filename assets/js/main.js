@@ -192,21 +192,26 @@ createApp({
             return true;
         },
         sendMessage() {
-         this.contacts[this.activeContact].messages.push({
-             date: new Date(),
-             message: this.newMsgToSend,
-             status: 'sent'
-         });
-         this.newMsgToSend = '';
-     
-         setTimeout(() => {
-             this.contacts[this.activeContact].messages.push({
-                 date: new Date(),
-                 message: 'ok',
-                 status: 'received'
-             });
-         }, 1000);
-     }
+            console.log(this.newMsgToSend);
+
+            this.contacts[this.activeContact].messages.push({
+                date: new Date(),
+                message: this.newMsgToSend,
+                status: 'sent'
+            });
+
+            this.newMsgToSend = '';
+
+            console.log(newMsgToSend);
+
+            setTimeout(() => {
+                this.contacts[this.activeContact].messages.push({
+                    date: new Date(),
+                    message: 'ok',
+                    status: 'received'
+                });
+            }, 1000);
+        }
     },
 
     /*
