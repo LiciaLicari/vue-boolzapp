@@ -74,6 +74,10 @@ body
 /*  #endregion debug */
 
 /* #region left */
+
+.left {
+    overflow: hidden;
+}
 .left > .user
 {
   background-color: var(--bz-gray-light);
@@ -94,7 +98,7 @@ body
 
 .contacts
 {
-  overflow-y: auto;
+  overflow-y: scroll;
   height: calc(100% - 220px);
 }
 
