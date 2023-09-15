@@ -210,6 +210,11 @@ body
   color: var(--bz-dark-gray)
 }
 
+.lastMsgSent, .timeMsg {
+  font-size: x-small;
+  color: var(--bz-dark-gray);
+}
+
 .contact_details
 {
   display: flex;

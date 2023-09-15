@@ -73,6 +73,12 @@
                         <div class="text">
                             {{contact.name}}
                         </div>
+                        <span class="lastMsgSent">
+                            {{contact.messages[contact.messages.length - 1].message}}
+                        </span>
+                    </div>
+                    <div class="lastMsg">
+                        <span class="timeMsg">12:00</span>
                     </div>
 
 
@@ -87,7 +93,7 @@
 
                     <div class="contact_details">
                         <div class="avatar">
-                            <img :src="contacts[activeContact].avatar" alt="">
+                            <img :src="`./assets/img/avatar${contacts[activeContact].avatar}.jpg`" alt="">
                         </div>
                         <div class="name">{{contacts[activeContact].name}}</div>
                     </div>
