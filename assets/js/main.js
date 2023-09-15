@@ -167,16 +167,17 @@ createApp({
                     ],
                 }
             ],
-            methods: {
-                showActiveContact(i) {
-                    console.log(this.activeContact);
-                    console.log(i);
-                    this.activeContact = i;
-                    console.log(this.activeContact);
-                    console.log(i);
-                    return `activeChat ${this.activeContact === index - 1 ? 'active' : ''}`
-                }
-            }
+            
+        }
+    },
+    methods: {
+        showActiveContact(i) {
+            console.log(this.activeContact);
+            console.log(i);
+            this.activeContact = i;
+            console.log(this.activeContact);
+            console.log(i);
+            return true;
         }
     }
 }).mount('#app')
