@@ -219,7 +219,12 @@ body
 .lastMsgSent, .timeMsg {
   font-size: x-small;
   color: var(--bz-dark-gray);
+  display: flex;
+  align-self: start;
+ 
 }
+
+
 
 
 .contact_details

@@ -192,6 +192,8 @@ createApp({
             return true;
         },
 
+        
+
         /*
        Milestone 3
        ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando

@@ -60,7 +60,7 @@
 
                 <div class="search_bar border my-1 mx-2 p-2 rounded-0 bg-white">
                     <button class="border-0 bg-transparent w-15"><i class="fa-solid fa-magnifying-glass "></i></button>
-                    <input type="text" class="border-0 bg-white w-75"
+                    <input type="text" style="outline: none" class="border-0 bg-white w-75"
                         placeholder="cerca o inizia una nuova chat" v-model="userToBeFound" @keyup="searchUser()">
 
                 </div>
@@ -69,18 +69,22 @@
                 <div class="contacts activeChat">
                     <template v-for="(contact, i) in contacts" @click="showActiveContact(i)" :class="i === activeContact ? 'active' : '' ">
 
-                        <div class="d-flex contact" v-if="contact.visible === true">
+                        <div class="contact" v-if="contact.visible === true">
 
                             <div class="avatar">
                                 <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
                             </div>
-                            <div class="text">
-                                {{contact.name}}
+                            <div class="infoMsgContact flex-grow-1">
+
+                                <div class="text">
+                                    {{contact.name}}
+                                </div>
+                                <span class="lastMsgSent">
+                                    {{contact.messages[contact.messages.length - 1].message}}
+                                </span>
+
                             </div>
-                            <span class="lastMsgSent">
-                                {{contact.messages[contact.messages.length - 1].message}}
-                            </span>
-                            <div class="lastMsg">
+                            <div class="lastMsg d-flex">
                                 <span class="timeMsg">12:00</span>
                             </div>
 
@@ -135,7 +139,7 @@
                     <div class="emoji">
                         <i class="fa-solid fa-smile fa-lg fa-fw"></i>
                     </div>
-                    <input type="text" class="text_area" placeholder="Scrivi un messaggio" v-model="newMsgToSend"
+                    <input style="outline: none" type="text" class="text_area" placeholder="Scrivi un messaggio" v-model="newMsgToSend"
                         @keyup.enter="sendMessage">
                     <div class="mic">
                         <i class="fa-solid fa-microphone fa-lg fa-fw"></i>
