@@ -208,9 +208,15 @@ createApp({
 
         sendMessage() {
 
+            // imposto orario messaggio
+            let DateTime = luxon.DateTime;
+            const now = DateTime.now().toFormat('HH:mm');
+            //console.log(now);
+            //console.log(this);
+
 
             this.contacts[this.activeContact].messages.push({
-                date: new Date(),
+                date: now,
                 message: this.newMsgToSend,
                 status: 'sent'
             });
@@ -220,12 +226,15 @@ createApp({
             // console.log(newMsgToSend);
 
             setTimeout(() => {
+                let DateTime = luxon.DateTime;
+                const twoSecLater = DateTime.now().plus({ second: 2 }).toFormat('HH:mm');
+
                 this.contacts[this.activeContact].messages.push({
-                    date: new Date(),
+                    date: twoSecLater,
                     message: 'ok',
                     status: 'received'
                 });
-            }, 1000);
+            }, 2000);
 
         },
 
