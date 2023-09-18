@@ -67,9 +67,9 @@
 
                 <!-- /.search_bar -->
                 <div class="contacts activeChat">
-                    <div class="contact" v-for="(contact, i) in contacts" @click="showActiveContact(i)" :class="i === activeContact ? 'active' : '' ">
+                    <template v-for="(contact, i) in contacts" @click="showActiveContact(i)" :class="i === activeContact ? 'active' : '' ">
 
-                        <div v-if="contact.visible === true">
+                        <div class="d-flex contact" v-if="contact.visible === true">
 
                             <div class="avatar">
                                 <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
@@ -87,7 +87,7 @@
 
 
                         </div>
-                    </div>
+                    </template>
                     <!-- ./contact -->
 
 
