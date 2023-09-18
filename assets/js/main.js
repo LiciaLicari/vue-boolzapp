@@ -210,7 +210,7 @@ createApp({
 
             // imposto orario messaggio
             let DateTime = luxon.DateTime;
-            const now = DateTime.now().toFormat('HH:mm');
+            const now = DateTime.now().toLocaleString(DateTime.DATETIME_SHORT);
             //console.log(now);
             //console.log(this);
 
@@ -227,7 +227,7 @@ createApp({
 
             setTimeout(() => {
                 let DateTime = luxon.DateTime;
-                const twoSecLater = DateTime.now().plus({ second: 2 }).toFormat('HH:mm');
+                const twoSecLater = DateTime.now().toLocaleString(DateTime.DATETIME_SHORT).plus({ second: 2 }).toFormat('HH:mm');
 
                 this.contacts[this.activeContact].messages.push({
                     date: twoSecLater,
