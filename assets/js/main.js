@@ -221,7 +221,47 @@ createApp({
                     status: 'received'
                 });
             }, 1000);
-        }
+
+        },
+
+        /* 
+            Milestone 4
+            ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+        */
+            searchUser() {
+
+                console.log(this.userToBeFound);
+                console.log(this.contacts[0].name.includes(this.userToBeFound));
+    
+                for (let i = 0; i < this.contacts.length; i++) {
+    
+                    if (this.userToBeFound === '') {
+    
+                        this.contacts[i].visible = true;
+    
+                    } else {
+    
+                        if (this.contacts[i].name.toLowerCase().includes(this.userToBeFound.toLowerCase())) {
+    
+                            console.log(this.contacts[i].name);
+    
+                        } else {
+    
+                            this.contacts[i].visible = false;
+                        }
+                    }
+    
+                }
+    
+            },
+
+
+
+
+
+
+
+
     },
 
     

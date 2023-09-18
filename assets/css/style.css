@@ -4,6 +4,7 @@
   --bz-gray: #d9dbd5;
   --bz-gray-light: #eaebeb;
   --bz-gray-ligther: #fbfbfa;
+  --bz-activeUser: #e9eaea;
   --bz-white: white;
   --bz-sand: #f3eeea;
   --bz-dark: #000;
@@ -47,6 +48,7 @@ body
   & .left
   {
     flex-grow: 1;
+    
   }
 
   & .right
@@ -61,7 +63,7 @@ body
 /* #endregion common */
 
 /* #region debug */
-.debug .left
+/* .debug .left
 {
   background-color: blanchedalmond;
 }
@@ -69,7 +71,7 @@ body
 .debug .right
 {
   background-color: aqua;
-}
+} */
 
 /*  #endregion debug */
 
@@ -77,6 +79,7 @@ body
 
 .left {
     overflow: hidden;
+    background-color: var(--bz-gray-light);
 }
 .left > .user
 {
@@ -98,8 +101,9 @@ body
 
 .contacts
 {
-  overflow-y: scroll;
+  overflow-y: hidden;
   height: calc(100% - 220px);
+  background-color: var(--bz-gray-ligther);
 }
 
 .contact
@@ -114,7 +118,7 @@ body
 
 .contact.active
 {
-  background-color: var(--bz-gray-light);
+  background-color: var(--bz-activeUser);
 }
 
 .avatar img

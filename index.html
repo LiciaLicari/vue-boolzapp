@@ -58,28 +58,37 @@
 
 
 
-                <div class="search_bar border my-1 mx-2 p-2 rounded-0 bg-light">
+                <div class="search_bar border my-1 mx-2 p-2 rounded-0 bg-white">
                     <button class="border-0 bg-transparent w-15"><i class="fa-solid fa-magnifying-glass "></i></button>
-                    <input type="text" class="border-0 bg-light w-75" placeholder="cerca o inizia una nuova chat">
+                    <input type="text" class="border-0 bg-white w-75"
+                        placeholder="cerca o inizia una nuova chat" v-model="userToBeFound" @keyup="searchUser()">
+
                 </div>
 
                 <!-- /.search_bar -->
                 <div class="contacts activeChat">
-                    <div class="contact" v-for="(contact, i) in contacts" @click="showActiveContact(i)"
-                        :class="i === activeContact ? 'active' : '' ">
-                        <div class="avatar">
-                            <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
-                        </div>
-                        <div class="text">
-                            {{contact.name}}
-                        </div>
-                        <span class="lastMsgSent">
-                            {{contact.messages[contact.messages.length - 1].message}}
-                        </span>
-                        <div class="lastMsg">
-                            <span class="timeMsg">12:00</span>
+                    <div class="contact" v-for="(contact, i) in contacts" @click="showActiveContact(i)" :class="i === activeContact ? 'active' : '' ">
+
+                        <div v-if="contact.visible === true">
+
+                            <div class="avatar">
+                                <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
+                            </div>
+                            <div class="text">
+                                {{contact.name}}
+                            </div>
+                            <span class="lastMsgSent">
+                                {{contact.messages[contact.messages.length - 1].message}}
+                            </span>
+                            <div class="lastMsg">
+                                <span class="timeMsg">12:00</span>
+                            </div>
+
+
+
                         </div>
                     </div>
+                    <!-- ./contact -->
 
 
 
@@ -126,8 +135,8 @@
                     <div class="emoji">
                         <i class="fa-solid fa-smile fa-lg fa-fw"></i>
                     </div>
-                    <input type="text" class="text_area" placeholder="Scrivi un messaggio"  v-model="newMsgToSend"
-                                        @keyup.enter="sendMessage">
+                    <input type="text" class="text_area" placeholder="Scrivi un messaggio" v-model="newMsgToSend"
+                        @keyup.enter="sendMessage">
                     <div class="mic">
                         <i class="fa-solid fa-microphone fa-lg fa-fw"></i>
                     </div>
