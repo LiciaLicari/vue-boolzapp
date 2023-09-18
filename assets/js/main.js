@@ -243,7 +243,7 @@ createApp({
     
                         if (this.contacts[i].name.toLowerCase().includes(this.userToBeFound.toLowerCase())) {
     
-                            console.log(this.contacts[i].name);
+                            //console.log(this.contacts[i].name);
     
                         } else {
     

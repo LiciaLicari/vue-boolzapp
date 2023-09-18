@@ -11,6 +11,7 @@
   --bz-sky: #8fdafd;
   --bz-dark-green: #019689;
   --bz-green: #d5f9ba;
+  --bz-i-chat: #6b7376;
 }
 
 *
@@ -148,6 +149,7 @@ body
 .user .actions i
 {
   padding: 1rem;
+  
 }
 
 
@@ -247,6 +249,7 @@ body
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
+  color: var(--bz-i-chat);
 }
 
 /* #endregion right */
