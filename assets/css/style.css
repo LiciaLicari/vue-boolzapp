@@ -117,7 +117,7 @@ body
   border: 1px solid var(--bz-gray-light);
 }
 
-.contact.active
+.active .contact
 {
   background-color: var(--bz-activeUser);
 }

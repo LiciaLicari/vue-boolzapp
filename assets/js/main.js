@@ -9,6 +9,8 @@ createApp({
                 name: 'Sofia'
             },
 
+            userToBeFound: '',
+
             //contatto attivo per vedere i messaggi
             activeContact: 0,
 
@@ -184,15 +186,16 @@ createApp({
 
     methods: {
         showActiveContact(i) {
-            //console.log(this.activeContact);
-            //console.log(i);
+            console.log(this.activeContact);
+            console.log(i);
             this.activeContact = i;
-            //console.log(this.activeContact);
-            //console.log(i);
+            console.log(this.activeContact);
+            console.log(i);
             return true;
+
         },
 
-        
+
 
         /*
        Milestone 3
@@ -204,7 +207,7 @@ createApp({
     */
 
         sendMessage() {
-           
+
 
             this.contacts[this.activeContact].messages.push({
                 date: new Date(),
@@ -230,32 +233,32 @@ createApp({
             Milestone 4
             ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
         */
-            searchUser() {
+        searchUser() {
 
-                console.log(this.userToBeFound);
-                console.log(this.contacts[0].name.includes(this.userToBeFound));
-    
-                for (let i = 0; i < this.contacts.length; i++) {
-    
-                    if (this.userToBeFound === '') {
-    
-                        this.contacts[i].visible = true;
-    
+            console.log(this.userToBeFound);
+            console.log(this.contacts[0].name.includes(this.userToBeFound));
+
+            for (let i = 0; i < this.contacts.length; i++) {
+
+                if (this.userToBeFound === '') {
+
+                    this.contacts[i].visible = true;
+
+                } else {
+
+                    if (this.contacts[i].name.toLowerCase().includes(this.userToBeFound.toLowerCase())) {
+
+                        //console.log(this.contacts[i].name);
+
                     } else {
-    
-                        if (this.contacts[i].name.toLowerCase().includes(this.userToBeFound.toLowerCase())) {
-    
-                            //console.log(this.contacts[i].name);
-    
-                        } else {
-    
-                            this.contacts[i].visible = false;
-                        }
+
+                        this.contacts[i].visible = false;
                     }
-    
                 }
-    
-            },
+
+            }
+
+        },
 
 
 
@@ -266,7 +269,7 @@ createApp({
 
     },
 
-    
+
 
 
 
